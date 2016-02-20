@@ -41,7 +41,7 @@ android {
         versionName "1.0"
 
         // runner for espresso
-        testInstrumentationRunner "com.sregg.android.tv.spotify.testUtils.RxAndroidJUnitRunner"
+//        testInstrumentationRunner "com.sregg.android.tv.spotify.testUtils.RxAndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -52,6 +52,7 @@ android {
     }
     repositories {
         mavenCentral()
+        maven { url "https://jitpack.io" }
         flatDir {
             dirs 'libs'
         }
@@ -76,7 +77,8 @@ dependencies {
     // spotify
     compile 'com.spotify.sdk:spotify-player:1.0.0-beta11@aar'
     compile 'com.spotify.sdk:spotify-auth:1.0.0-beta11@aar'
-    compile project(':spotify-api')
+//    compile project(':spotify-api')
+    compile 'com.github.kaaes:spotify-web-api-android:0.2.0'
 
     // retrofit okhttp
     compile 'com.squareup.retrofit:retrofit:1.9.0'
@@ -111,10 +113,12 @@ spoon {
     debug = true;
 }
 
+/*
 play {
     serviceAccountEmail = '724462887271-bk4vi27q9qk9h4g3mideokj3e0bqe3ng@developer.gserviceaccount.com'
     pk12File = file('/Users/simonreggiani/dev/keys/Google_Play_Android_Developer-0bc22be971a2.p12')
 }
+*/
 
 Properties releaseProperties = new Properties()
 if (project.rootProject.file('release.properties').exists()) {
